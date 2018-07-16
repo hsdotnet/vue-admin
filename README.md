@@ -1,4 +1,4 @@
-vue-mall
+vue-admin
 
 一个基于vue编写的后端管理项目
 
