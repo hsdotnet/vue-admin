@@ -14,14 +14,14 @@ vue-mall
 或者通过git命令下载
 #git命令下载
 
-git clone https://github.com/hsdotnet/vue-mall.git
+git clone https://github.com/hsdotnet/vue-admin.git
 
 第二步：启动
 
 （1）新开一个命令行窗口
 
 （2）定位到项目目录并安装依赖
-  > cd 你自己的位置/vue-mall
+  > cd 你自己的位置/vue-admin
   
   > npm install
   
@@ -31,10 +31,10 @@ git clone https://github.com/hsdotnet/vue-mall.git
 
 项目截图
 
-  <img src="https://github.com/hsdotnet/vue-mall/blob/master/src/assets/images/1.png"/>
+  <img src="https://github.com/hsdotnet/vue-admin/blob/master/src/assets/images/1.png"/>
 
-  <img src="https://github.com/hsdotnet/vue-mall/blob/master/src/assets/images/2.png"/>
+  <img src="https://github.com/hsdotnet/vue-admin/blob/master/src/assets/images/2.png"/>
   
-  <img src="https://github.com/hsdotnet/vue-mall/blob/master/src/assets/images/3.png"/>
+  <img src="https://github.com/hsdotnet/vue-admin/blob/master/src/assets/images/3.png"/>
 
-  <img src="https://github.com/hsdotnet/vue-mall/blob/master/src/assets/images/4.png"/>
+  <img src="https://github.com/hsdotnet/vue-admin/blob/master/src/assets/images/4.png"/>
