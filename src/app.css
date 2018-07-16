@@ -1,0 +1,115 @@
+.ivu-card-body{padding: 5px 5px 15px 5px !important}
+ul li{list-style: none}
+
+body,html{overflow:hidden;margin:0;padding:0;width:100%;height:100%;font-family: Monospaced Number,Chinese Quote,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif !important}
+#app{width:100%;height:100%}
+.app-layout{height: 100%;}
+
+.app-layout .app-header{background: #00a65a;padding: 0;height: 50px;line-height: normal;}
+.app-header .app-header-warpper{display: flex;justify-content: space-between;}
+.app-header-warpper > ul > li{height: 50px;}
+.app-header-warpper > ul > li > a{display: block;text-align:center; color: #fff}
+.app-header-warpper > ul > li > a > i{font-size: 18px;}
+.app-header-warpper > ul > li > a.icon{padding:15px 12px;}
+.app-header-warpper > ul > li > a:hover{background: rgba(0,0,0,0.1);}
+.app-header-warpper > ul{display: flex;}
+.app-header-warpper > ul > li > a.sider-nav-toggle{border-right:1px solid rgba(0,0,0,.08);padding:15px 15px 15px 16px;}
+.app-header .sider-nav-toggle i{transition: transform .2s;display: inline-block;}
+.app-header .sider-nav-toggle.collapsed i{transform: rotateZ(180deg);}
+.app-header-left .logo{transition:width .3s ease-in-out;width:180px;display:block;line-height:50px;font-weight:600;font-size:20px;overflow:hidden;}
+.app-header-right .user{line-height:50px;padding: 0 15px}
+.app-header-right .user .user-dropdown-avator{margin-right:5px}
+.app-header-right .user .user-text{font-size: 14px;}
+
+@media (max-width:768px) {
+    .app-header-warpper > ul > li > a.notification,
+    .app-header-warpper > ul > li > a.message,
+    .app-header-warpper > ul > li > a.fullscreen,
+    .app-header-warpper > ul > li > a.setting{display: none}
+}
+
+.app-layout .app-sider-nav{background: #222d32;}
+.app-sider-nav .menu-collapsed .ivu-dropdown{width:100%}
+.app-sider-nav .menu-collapsed .ivu-dropdown .ivu-dropdown-rel a{width:100%}
+.app-sider-nav .menu-collapsed .ivu-tooltip{width:100%}
+.app-sider-nav .menu-collapsed .ivu-tooltip .ivu-tooltip-rel{width:100%}
+.app-sider-nav .menu-collapsed .ivu-tooltip .ivu-tooltip-popper .ivu-tooltip-content .ivu-tooltip-arrow{border-right-color:#fff}
+.app-sider-nav .menu-collapsed .ivu-tooltip .ivu-tooltip-popper .ivu-tooltip-content .ivu-tooltip-inner{background:#fff;color:#495060}
+.app-sider-nav .menu-collapsed .menu-title{margin-left:6px}
+.app-sider-nav .menu-collapsed .ivu-select-dropdown{width:160px;margin-left:4px}
+.app-sider-nav a.drop-menu-a{display:inline-block;padding:6px 15px;width:100%;text-align:center;color:#495060}
+.app-sider-nav .menu-user-avator{ border-radius:50%; margin: 8px 9px; }
+.app-sider-nav .sider-user-box{padding: 12px;display:flex;align-items:center;}
+.app-sider-nav .sider-user-box .ivu-avatar-image{width: 45px; height: 45px; border-radius: 50%;}
+.app-sider-nav .sider-user-box .info{ margin-left: 10px; color: #fff;font-size: 14px}
+.app-sider-nav .menu-header{padding:10px 25px 10px 15px;background: #1a2226;color: #4b646f}
+.app-sider-nav .ivu-menu{ color: #b8c7ce}
+.app-sider-nav .ivu-menu-vertical.ivu-menu-light:after{width: 0}
+.app-sider-nav .ivu-menu-light.ivu-menu-vertical .ivu-menu-item-active:not(.ivu-menu-submenu){color: #fff;border-right:none;background: #2c3b41 }
+.app-sider-nav .ivu-menu-vertical > .ivu-menu-item,.app-sider-nav .ivu-menu-vertical > .ivu-menu-submenu > .ivu-menu-submenu-title{background:#222d32}
+.app-sider-nav .ivu-menu-vertical > .ivu-menu-item:hover,.app-sider-nav .ivu-menu-vertical > .ivu-menu-submenu > .ivu-menu-submenu-title:hover{background:#1e282c}
+.app-sider-nav .ivu-menu-vertical .ivu-menu-submenu .ivu-menu-item:hover{color: #fff; background: #2c3b41;border-right: none;}
+.app-sider-nav .ivu-menu-vertical .ivu-menu-opened .ivu-menu-submenu-title{background:#1e282c}
+.app-sider-nav .ivu-menu-vertical>.ivu-menu-submenu .ivu-menu{background: #2c3b41}
+.app-sider-nav .ivu-menu-vertical .ivu-menu-item, .app-sider-nav .ivu-menu-vertical .ivu-menu-submenu-title{padding: 10px 5px 10px 15px;}
+.app-sider-nav .ivu-menu-submenu .ivu-menu .ivu-menu-item{padding: 8px 15px}
+
+.app-layout .app-tabs-nav-wrapper{padding:0;overflow:hidden;border-bottom: 1px solid #e0e0e0;background: #fff;position: relative;}
+.app-tabs-nav-wrapper .tabs-nav{position:relative;user-select:none;width:100%;height:40px;}
+.app-tabs-nav-wrapper .tabs-nav .close-con{position:absolute;right:0;top:0;height:100%;width:32px;background:#fff;text-align:center;z-index:10;border-left:1px solid #ddd}
+.app-tabs-nav-wrapper .tabs-nav .btn-con{position:absolute;top:0;height:100%;background:#fff;padding-top:3px;z-index:10}
+.app-tabs-nav-wrapper .tabs-nav .btn-con button{padding:6px 10px;text-align:center;outline: none;box-shadow: none}
+.app-tabs-nav-wrapper .tabs-nav .btn-con.left-btn{left:0;border-right:1px solid #ddd}
+.app-tabs-nav-wrapper .tabs-nav .btn-con.right-btn{right:32px;border-left:1px solid #ddd}
+.app-tabs-nav-wrapper .tabs-nav .scroll-outer{position:absolute;left:29px;right:61px;top:0;bottom:0;}
+.app-tabs-nav-wrapper .tabs-nav .scroll-outer .scroll-body{display:inline-block;position:absolute;overflow:visible;white-space:nowrap;transition: left .3s ease;}
+.tabs-nav .tab{height: 40px; line-height: 39px;font-size: 13px}
+.tabs-nav .tab.tab-selected{border-bottom: 2px solid #00a65a;color: #00a65a}
+.tabs-nav .tab > i.tab-close-icon:hover{color: #f00}
+
+.app-tabs-nav-wrapper .app-tabs-nav-breadcrumb{padding: 8px 15px;}
+.app-tabs-nav-wrapper .ivu-breadcrumb>span:last-child{font-weight: normal !important; color: #00a65a}
+.app-tabs-nav-wrapper .app-tabs-nav-breadcrumb .time{position: absolute; right: 15px; top: 10px;font-size: 14px;color: #999}
+
+.app-layout .app-content-layout{overflow-x:hidden;position:relative;background: #eee;}
+.app-content-layout .app-content-wrapper{position:absolute;width: 100%;}
+.app-content-layout .app-content-wrapper > div{margin: 5px;background: #fff;padding:5px 5px 15px; }
+
+.tree ul{font-size: 14px !important;}
+.tree ul li i{font-size: 16px;}
+
+.app-tabs .ivu-tabs-ink-bar{height: 0;}
+.app-tabs .ivu-tabs-nav .ivu-tabs-tab{margin-right: 0}
+.app-tabs .ivu-tabs-nav .ivu-tabs-tab-active{border-bottom:3px solid #2d8cf0 }
+
+.search-bar{padding: 5px 0;}
+.search-bar .search-input{display: inline-block;width: 200px; margin-left: 5px;}
+.search-bar .search-btn{margin-left: 5px}
+
+
+
+/**************************theme******************************/
+.app-layout.green .app-header{background: #00a65a;}
+.app-layout.green .tabs-nav .tab.tab-selected{border-bottom: 2px solid #00a65a;color: #00a65a}
+.app-layout.green .app-tabs-nav-wrapper .ivu-breadcrumb>span:last-child{color: #00a65a}
+
+.app-layout.blue .app-header{background: #3c8dbc;}
+.app-layout.blue .tabs-nav .tab.tab-selected{border-bottom: 2px solid #3c8dbc;color: #3c8dbc}
+.app-layout.blue .app-tabs-nav-wrapper .ivu-breadcrumb>span:last-child{color: #3c8dbc}
+
+.app-layout.black .app-header{background: #fff;}
+.app-layout.black .tabs-nav .tab.tab-selected{border-bottom: 2px solid #333;color: #333}
+.app-layout.black .app-tabs-nav-wrapper .ivu-breadcrumb>span:last-child{color: #333}
+
+.app-layout.purple .app-header{background: #605ca8 !important;}
+.app-layout.purple .tabs-nav .tab.tab-selected{border-bottom: 2px solid #605ca8;color: #605ca8}
+.app-layout.purple .app-tabs-nav-wrapper .ivu-breadcrumb>span:last-child{color: #605ca8}
+
+.app-layout.red .app-header{background: #dd4b39 !important;}
+.app-layout.red .tabs-nav .tab.tab-selected{border-bottom: 2px solid #dd4b39;color: #dd4b39}
+.app-layout.red .app-tabs-nav-wrapper .ivu-breadcrumb>span:last-child{color: #dd4b39}
+
+.app-layout.yellow .app-header{background: #f39c12 !important;}
+.app-layout.yellow .tabs-nav .tab.tab-selected{border-bottom: 2px solid #f39c12;color: #f39c12}
+.app-layout.yellow .app-tabs-nav-wrapper .ivu-breadcrumb>span:last-child{color: #f39c12}
+/**************************theme******************************/
