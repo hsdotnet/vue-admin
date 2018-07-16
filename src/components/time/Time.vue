@@ -22,7 +22,7 @@ export default {
     }
   },
   mounted () {
-    var that = this
+    let that = this
     that.ts = that.getTime()
     setInterval(function () {
       that.ts = that.getTime()
