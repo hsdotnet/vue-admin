@@ -1,6 +1,5 @@
 <template>
-  <div class="side-menu-wrapper">
-    <slot></slot>
+  <div class="sider-nav">
     <div class="sider-menu">
       <div class="sider-menu-top" v-show="!collapsed">
         <div class="sider-user-box">
@@ -12,14 +11,14 @@
         </div>
         <div class="menu-header">导航菜单</div>
       </div>
-      <Menu ref="menu" v-show="!collapsed" :active-name="activeName" :open-names="openedNames" :accordion="accordion" width="auto" @on-select="handleSelect">
+      <Menu ref="menu" v-show="!collapsed" :active-name="activeName" :open-names="openedNames" accordion width="auto" @on-select="handleSelect">
         <template v-for="item in menuList">
           <template v-if="item.children && item.children.length === 1">
-            <app-menu-item v-if="showChildren(item)" :key="`menu-${item.name}`" :parent-item="item"></app-menu-item>
+            <nav-item v-if="showChildren(item)" :key="`menu-${item.name}`" :parent-item="item"></nav-item>
             <menu-item v-else :name="getNameOrHref(item, true)" :key="`menu-${item.children[0].name}`"><IconFont :type="item.children[0].icon || ''"/><span>{{ showTitle(item.children[0]) }}</span></menu-item>
           </template>
           <template v-else>
-            <app-menu-item v-if="showChildren(item)" :key="`menu-${item.name}`" :parent-item="item"></app-menu-item>
+            <nav-item v-if="showChildren(item)" :key="`menu-${item.name}`" :parent-item="item"></nav-item>
             <menu-item v-else :name="getNameOrHref(item)" :key="`menu-${item.name}`"><IconFont :type="item.icon || ''"/><span>{{ showTitle(item) }}</span></menu-item>
           </template>
         </template>
@@ -28,7 +27,7 @@
     <div class="menu-collapsed" v-show="collapsed" :list="menuList">
       <Avatar :src="userAvator" class="menu-user-avator"/>
       <template v-for="item in menuList">
-        <app-collapsed-menu v-if="item.children && item.children.length > 1" @on-click="handleSelect" hide-title :root-icon-size="rootIconSize" :icon-size="iconSize" :parent-item="item" :key="`drop-menu-${item.name}`"></app-collapsed-menu>
+        <collapsed-nav v-if="item.children && item.children.length > 1" @on-click="handleSelect" hide-title :root-icon-size="rootIconSize" :icon-size="iconSize" :parent-item="item" :key="`drop-menu-${item.name}`"></collapsed-nav>
         <Tooltip v-else :content="item.meta.title || item.children[0].meta.title" placement="right" :key="`drop-menu-${item.name}`">
           <a @click="handleSelect(getNameOrHref(item, true))" class="drop-menu-a" :style="{textAlign: 'center'}"><IconFont :size="rootIconSize" :type="item.icon || item.children[0].icon"/></a>
         </Tooltip>
@@ -38,18 +37,18 @@
 </template>
 <script>
 import IconFont from '_c/icon-font'
-import AppMenuItem from './AppMenuItem.vue'
-import AppCollapsedMenu from './AppCollapsedMenu.vue'
+import NavItem from './NavItem.vue'
+import CollapsedNav from './CollapsedNav.vue'
 import { getUnion } from '@/libs/tools'
 import mixin from './mixin'
 
 export default {
-  name: 'AppSiderNav',
+  name: 'SiderNav',
   mixins: [ mixin ],
   components: {
     IconFont,
-    AppMenuItem,
-    AppCollapsedMenu
+    NavItem,
+    CollapsedNav
   },
   props: {
     menuList: {
@@ -69,7 +68,6 @@ export default {
       type: Number,
       default: 16
     },
-    accordion: Boolean,
     activeName: {
       type: String,
       default: ''

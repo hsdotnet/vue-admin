@@ -1,14 +1,22 @@
 @color:#dd4b39;
 
-.app-layout.red{
-  .app-header{
+.layout.red{
+  .layout-header{
     background: @color;
   }
-  .tabs-nav .tab.tab-selected{
-    border-bottom: 2px solid  @color;
+  .header{
+    & > ul > li > a{
+      color: #fff;
+    }
+  }
+  .layout-sider{
+    background: #222d32;
+  }
+  .tab-nav .tab.tab-selected{
+    border-bottom-color: @color;
     color: @color;
   }
-  .app-tabs-nav-wrapper .ivu-breadcrumb>span:last-child{
+  .tab-nav-breadcrumb .ivu-breadcrumb>span:last-child{
     color: @color;
   }
 }

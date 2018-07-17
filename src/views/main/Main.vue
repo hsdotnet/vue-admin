@@ -1,46 +1,48 @@
 <template>
-  <Layout :class="['app-layout', theme]">
-    <Header class="app-header">
-      <AppHeader :collapsed="collapsed" @on-change="handleCollapsedChange" />
-    </Header>
-    <Layout>
-      <Sider class="app-sider-nav" hide-trigger collapsible :width="230" :collapsed-width="50" v-model="collapsed">
-        <AppSiderNav accordion :active-name="$route.name" :collapsed="collapsed" @on-select="turnToPage" :menu-list="menuList" />
-      </Sider>
-      <Layout>
-        <div class="app-tabs-nav-wrapper">
-          <AppTabNav v-if="isTab" :value="$route" @input="handleClick" :list="tagNavList" @on-close="handleCloseTag" />
-          <div v-else class="app-tabs-nav-breadcrumb">
-            <Breadcrumb>
-              <BreadcrumbItem v-for="item in breadCrumbList" :to="item.to" :key="`bread-crumb-${item.name}`">
-                <IconFont :type="item.icon || ''" />
-                {{ showTitle(item) }}
-              </BreadcrumbItem>
-            </Breadcrumb>
-            <Time class="time" />
+  <div :class="['layout top-layout', theme]">
+    <div class="layout-header">
+      <Header :collapsed="collapsed" @on-toggle="handleNavToggle" />
+    </div>
+    <div class="layout layout-has-sider">
+      <div :class="['layout-sider', collapsed ? 'min': '']">
+        <SiderNav :active-name="$route.name" :collapsed="collapsed" @on-select="turnToPage" :menu-list="menuList" />
+      </div>
+      <div class="layout">
+        <div class="layout-tab">
+          <div class="tab-warpper">
+            <TabNav v-if="isTab" :value="$route" @on-select="handleClick" :list="tagNavList" @on-close="handleCloseTab" />
+            <div v-else class="tab-nav-breadcrumb">
+              <Breadcrumb>
+                <BreadcrumbItem v-for="item in breadCrumbList" :to="item.to" :key="`bread-crumb-${item.name}`">
+                  <IconFont :type="item.icon || ''" />
+                  {{ showTitle(item) }}
+                </BreadcrumbItem>
+              </Breadcrumb>
+              <Time class="time" />
+            </div>
           </div>
         </div>
-        <Layout class="app-content-layout">
-          <Content class="app-content-wrapper">
-            <div>
+        <div class="layout-content">
+          <div class="layout-content-wrapper">
+            <div class="wrapper">
               <keep-alive :include="cacheList">
                 <router-view/>
               </keep-alive>
             </div>
-          </Content>
-        </Layout>
-      </Layout>
-    </Layout>
-    <AppSiderControl />
-  </Layout>
+          </div>
+        </div>
+      </div>
+    </div>
+    <SiderControl/>
+  </div>
 </template>
 
 <script>
 import IconFont from '_c/icon-font'
-import AppHeader from '_c/main/app-header'
-import AppSiderNav from '_c/main/app-sider-nav'
-import AppTabNav from '_c/main/app-tab-nav'
-import AppSiderControl from '_c/main/app-sider-control'
+import Header from '_c/main/header'
+import SiderNav from '_c/main/sider-nav'
+import TabNav from '_c/main/tab-nav'
+import SiderControl from '_c/main/sider-control'
 import Time from '_c/time'
 import { mapMutations, mapActions } from 'vuex'
 import { getNewTagList, getNextName, showTitle } from '@/libs/util'
@@ -48,10 +50,10 @@ export default {
   name: 'Main',
   components: {
     IconFont,
-    AppHeader,
-    AppSiderNav,
-    AppTabNav,
-    AppSiderControl,
+    Header,
+    SiderNav,
+    TabNav,
+    SiderControl,
     Time
   },
   data () {
@@ -72,7 +74,7 @@ export default {
     isTab () {
       return this.$store.state.user.isTab
     },
-    theme() {
+    theme () {
       return this.$store.state.app.theme
     },
     cacheList () {
@@ -110,10 +112,10 @@ export default {
         name: name
       })
     },
-    handleCollapsedChange (state) {
+    handleNavToggle (state) {
       this.collapsed = state
     },
-    handleCloseTag (res, type, name) {
+    handleCloseTab (res, type, name) {
       const nextName = getNextName(this.tagNavList, name)
       this.setTagNavList(res)
       if (type === 'all') this.turnToPage('home')
@@ -137,7 +139,7 @@ export default {
         that.collapsed = document.documentElement.clientWidth < 768
       }, 200)
     }
-    if(localStorage.theme) {
+    if (localStorage.theme) {
       that.setTheme(localStorage.theme)
     }
     if (that.$store.state.user.isTab) {

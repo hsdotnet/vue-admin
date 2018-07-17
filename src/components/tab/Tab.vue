@@ -1,8 +1,8 @@
 <template>
-    <div :class="classes" @click.stop="check">
+    <div :class="classes" @click="select">
         <IconFont :type="icon" :class="iconClasses" />
         <span><slot></slot></span>
-        <IconFont v-if="closable" type="close" :class="closeIconClasses" @click.native.stop="close"/>
+        <IconFont v-if="closable" type="close" :class="closeIconClasses" @click.stop="close"/>
     </div>
 </template>
 
@@ -46,11 +46,11 @@ export default {
         this.$emit('on-close', event, this.name)
       }
     },
-    check () {
+    select () {
       if (this.name === undefined) {
-        this.$emit('on-change')
+        this.$emit('on-select')
       } else {
-        this.$emit('on-change', this.name)
+        this.$emit('on-select', this.name)
       }
     }
   }

@@ -14,7 +14,7 @@ import IconFont from '_c/icon-font'
 import mixin from './mixin'
 import itemMixin from './item-mixin'
 export default {
-  name: 'AppCollapsedMenu',
+  name: 'CollapsedNav',
   components: {
     IconFont
   },

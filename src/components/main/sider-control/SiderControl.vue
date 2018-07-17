@@ -20,14 +20,14 @@
 import Theme from '_c/theme'
 import { mapMutations } from 'vuex'
 export default {
-  name: 'AppSiderControl',
+  name: 'SiderControl',
   components: {
     Theme
   },
   data () {
     return {
       themeList: [
-        { name: 'grean', bgHeader: '#00a65a', bgSider: '#222d32' },
+        { name: 'green', bgHeader: '#00a65a', bgSider: '#222d32' },
         { name: 'blue', bgHeader: '#3c8dbc', bgSider: '#222d32' },
         { name: 'black', bgHeader: '#fff', bgSider: '#222d32' },
         { name: 'purple', bgHeader: '#605ca8', bgSider: '#222d32' },
@@ -55,7 +55,7 @@ export default {
 
 <style lang="less">
 .sider-control{
-  top:50px;
+  top:51px;
   bottom: 0;
   background:#fff;
   position:fixed;

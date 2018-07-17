@@ -1,14 +1,14 @@
 <template>
-  <div class="app-header-warpper">
-    <ul class="app-header-left">
+  <div class="header">
+    <ul class="header-left">
       <li>
-        <a @click="handleToggle" type="text" :class="['icon sider-nav-toggle', collapsed ? 'collapsed' : '']"><IconFont type="outdent" /></a>
+        <a @click="handleNavToggle" type="text" :class="['icon sider-nav-toggle', collapsed ? 'collapsed' : '']"><IconFont type="outdent" /></a>
       </li>
       <li>
         <router-link class="logo" to="/">Admin</router-link>
       </li>
     </ul>
-    <ul class="app-header-right">
+    <ul class="header-right">
       <li>
         <a type="text" class="icon notification"><IconFont type="notification" /></a>
       </li>
@@ -33,7 +33,7 @@
         </a>
       </li>
       <li>
-        <a type="text" class="icon setting" @click="handleToggleControl"><IconFont type="setting" /></a>
+        <a type="text" class="icon setting" @click="handleControlToggle"><IconFont type="setting" /></a>
       </li>
     </ul>
   </div>
@@ -43,7 +43,7 @@
 import IconFont from '_c/icon-font'
 import { mapMutations, mapActions } from 'vuex'
 export default {
-  name: 'AppHeader',
+  name: 'Header',
   components: {
     IconFont
   },
@@ -62,8 +62,8 @@ export default {
     ...mapMutations([
       'setControlOpen'
     ]),
-    handleToggle () {
-      this.$emit('on-change', !this.collapsed)
+    handleNavToggle () {
+      this.$emit('on-toggle', !this.collapsed)
     },
     handleClick (name) {
       switch (name) {
@@ -76,7 +76,7 @@ export default {
           break
       }
     },
-    handleToggleControl () {
+    handleControlToggle () {
       this.open = !this.open
       this.setControlOpen(this.open)
     }

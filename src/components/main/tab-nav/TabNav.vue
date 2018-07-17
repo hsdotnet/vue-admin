@@ -1,7 +1,7 @@
 <template>
-  <div class="tabs-nav">
+  <div class="tab-nav">
     <div class="close-con">
-      <Dropdown transfer @on-click="handleTagsOption" style="margin-top:7px;">
+      <Dropdown transfer @on-click="handleTabClick" style="margin-top:7px;">
         <Button size="small" type="text">
           <Icon :size="18" type="ios-close-outline"></Icon>
         </Button>
@@ -22,11 +22,10 @@
         <transition-group name="taglist-moving-animation">
           <Tab :class="item.name === value.name ? 'tab-selected' : ''"
             v-for="item in list"
-            ref="tabsPageOpened"
             :key="`tab-nav-${item.name}`"
             :name="item.name"
             @on-close="handleClose"
-            @click.native="handleClick(item)"
+            @on-select="handleSelect(item)"
             :closable="item.name !== 'home'"
             :icon="item.meta.icon"
           >{{ showTitleInside(item) }}</Tab>
@@ -40,7 +39,7 @@
 import Tab from '_c/tab'
 import { showTitle } from '@/libs/util'
 export default {
-  name: 'AppTabNav',
+  name: 'TabNav',
   components: {
     Tab
   },
@@ -82,7 +81,7 @@ export default {
         }
       }
     },
-    handleTagsOption (type) {
+    handleTabClick (type) {
       if (type === 'close-all') {
         // 关闭所有，除了home
         let res = this.list.filter(item => item.name === 'home')
@@ -97,8 +96,8 @@ export default {
       let res = this.list.filter(item => item.name !== name)
       this.$emit('on-close', res, undefined, name)
     },
-    handleClick (item) {
-      this.$emit('input', item)
+    handleSelect (item) {
+      this.$emit('on-select', item)
     },
     showTitleInside (item) {
       return showTitle(item, this)
