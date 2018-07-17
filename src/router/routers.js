@@ -1,4 +1,4 @@
-import Main from '@/views/main'
+import Layout from '@/views/layout'
 
 /**
  * iview-admin中meta除了原生参数外可配置的参数:
@@ -24,7 +24,7 @@ export default [
     path: '/',
     name: 'home',
     redirect: '/home',
-    component: Main,
+    component: Layout,
     meta: {
       hideInMenu: true,
       notCache: true
@@ -50,7 +50,7 @@ export default [
       icon: 'setting',
       title: '系统管理'
     },
-    component: Main,
+    component: Layout,
     children: [
       {
         path: 'user',

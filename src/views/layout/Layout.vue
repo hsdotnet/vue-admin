@@ -39,15 +39,15 @@
 
 <script>
 import IconFont from '_c/icon-font'
-import Header from '_c/main/header'
-import SiderNav from '_c/main/sider-nav'
-import TabNav from '_c/main/tab-nav'
-import SiderControl from '_c/main/sider-control'
+import Header from '_c/layout/header'
+import SiderNav from '_c/layout/sider-nav'
+import TabNav from '_c/layout/tab-nav'
+import SiderControl from '_c/layout/sider-control'
 import Time from '_c/time'
 import { mapMutations, mapActions } from 'vuex'
 import { getNewTagList, getNextName, showTitle } from '@/libs/util'
 export default {
-  name: 'Main',
+  name: 'Layout',
   components: {
     IconFont,
     Header,
