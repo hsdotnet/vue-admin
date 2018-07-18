@@ -58,6 +58,7 @@ export default {
           fixed: 'right',
           width: 105,
           render: (h, params) => {
+            var that = this
             return h('div', [
               h('Button', {
                 props: {
@@ -68,6 +69,11 @@ export default {
                 style: {
                   fontSize: '14px',
                   marginRight: '5px'
+                },
+                on: {
+                  click () {
+                    that.edit(params.row)
+                  }
                 }
               }, ''),
               h('Button', {
@@ -78,6 +84,11 @@ export default {
                 },
                 style: {
                   fontSize: '14px'
+                },
+                on: {
+                  click () {
+                    that.del(params.row)
+                  }
                 }
               }, '')
             ])
@@ -90,6 +101,7 @@ export default {
       total: 0,
       roleName: '',
       modal: false,
+      selectRows: [],
       formData: {
         roleId: 0,
         roleName: '',
@@ -111,12 +123,10 @@ export default {
       })
     },
     tableSelect (selection, row) {
-      console.log(selection)
-      console.log(row)
+      this.selectRows.push(row)
     },
     tableSelectCancel (selection, row) {
-      console.log(selection)
-      console.log(row)
+      this.selectRows = selection
     },
     pageChange (page) {
       this.page = page
@@ -137,6 +147,19 @@ export default {
     add () {
       this.modal = true
     },
+    edit (role) {
+      this.modal = true
+      this.formData.roleId = role.roleId
+      this.formData.roleName = role.roleName
+      this.formData.remark = role.remark
+    },
+    del (row) {
+      this.$Modal.confirm({
+        title: '系统提示',
+        content: '确定要删除【' + row.roleName + '】？',
+        onOk: () => { }
+      })
+    },
     reset () {
       this.formData.roleId = 0
       this.formData.roleName = ''
@@ -147,6 +170,10 @@ export default {
       this.reset()
     },
     batchDel () {
+      if (this.selectRows.length === 0) {
+        this.$Message.warning('请选择要删除的记录')
+        return
+      }
       this.$Modal.confirm({
         title: '系统提示',
         content: '确定要删除选择的记录？',
