@@ -21,10 +21,10 @@ export default {
           text: this.text,
           x: 'center'
         },
-        tooltip : {
+        tooltip: {
           trigger: 'axis',
-          axisPointer : {
-            type : 'shadow'
+          axisPointer: {
+            type: 'shadow'
           }
         },
         xAxis: {

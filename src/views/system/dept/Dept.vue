@@ -36,8 +36,11 @@ export default {
         { title: '部门Code', width: 100, key: 'deptCode' },
         { title: '备注', key: 'remark' },
         {
-          title: '操作', key: 'action', fixed: 'right', width: 105, 
-          render: (h, params) => { 
+          title: '操作',
+          key: 'action',
+          fixed: 'right',
+          width: 105,
+          render: (h, params) => {
             return h('div', [
               h('Button', {
                 props: {
@@ -60,7 +63,7 @@ export default {
                   fontSize: '14px'
                 }
               }, '')
-            ]);
+            ])
           }
         }
       ],

@@ -20,9 +20,9 @@ export default {
           text: this.text,
           x: 'center'
         },
-        tooltip : {
+        tooltip: {
           trigger: 'item',
-          formatter: "{a} <br/>{b} : {c} ({d}%)"
+          formatter: '{a} <br/>{b} : {c} ({d}%)'
         },
         legend: {
           orient: 'vertical',
@@ -31,7 +31,7 @@ export default {
         },
         series: [
           {
-            radius : '70%',
+            radius: '70%',
             center: ['50%', '60%'],
             name: this.name,
             type: 'pie',

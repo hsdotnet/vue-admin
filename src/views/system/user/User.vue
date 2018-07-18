@@ -33,7 +33,11 @@ export default {
         { title: '编号', width: 70, key: 'userId' },
         { title: '用户名', width: 100, key: 'userName' },
         { title: '真实姓名', width: 100, key: 'realName' },
-        { title: '性别', width: 70, key: 'sex', align: 'center', 
+        {
+          title: '性别',
+          width: 70,
+          key: 'sex',
+          align: 'center',
           render: (h, params) => {
             const row = params.row
             const color = row.sex === 1 ? 'green' : 'blue'
@@ -43,7 +47,11 @@ export default {
             }, text)
           }
         },
-        { title: '出生日期', width: 100, key: 'birthday', align: 'center',  
+        {
+          title: '出生日期',
+          width: 100,
+          key: 'birthday',
+          align: 'center',
           render: (h, params) => {
             return h('div', moment().format('YYYY-MM-DD'))
           }
@@ -51,8 +59,11 @@ export default {
         { title: '邮箱', width: 200, key: 'email' },
         { title: '备注', key: 'remark' },
         {
-          title: '操作', key: 'action', fixed: 'right', width: 105, 
-          render: (h, params) => { 
+          title: '操作',
+          key: 'action',
+          fixed: 'right',
+          width: 105,
+          render: (h, params) => {
             return h('div', [
               h('Button', {
                 props: {
@@ -75,7 +86,7 @@ export default {
                   fontSize: '14px'
                 }
               }, '')
-            ]);
+            ])
           }
         }
       ],

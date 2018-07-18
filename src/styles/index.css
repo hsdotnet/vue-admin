@@ -2,6 +2,7 @@
 ul li{list-style: none}
 .mr5{margin-right: 5px;}
 .ml5{margin-left: 5px;}
+textarea{resize: none;}
 
 body,html{overflow:hidden;margin:0;padding:0;width:100%;height:100%;font-family: Monospaced Number,Chinese Quote,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif !important}
 #app{width:100%;height:100%}
