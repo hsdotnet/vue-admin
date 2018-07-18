@@ -5,7 +5,7 @@
         <Input clearable placeholder="角色名称" class="search-input" v-model="roleName" />
         <ButtonGroup class="ml5">
           <Button type="primary" @click="search"><Icon type="search" />查询</Button>
-          <Button><Icon type="close" @click="clear" />清空</Button>
+          <Button @click="clear"><Icon type="close" />清空</Button>
         </ButtonGroup>
       </div>
       <div class="right">
@@ -27,10 +27,10 @@
       :mask-closable="false">
       <Form ref="roleForm" :model="formData" :rules="roleRules" :label-width="80">
         <FormItem label="角色名称" prop="roleName">
-          <Input v-model="formData.roleName"/>
+          <Input type="text" v-model="formData.roleName"/>
         </FormItem>
         <FormItem label="备注">
-          <Input v-model="formData.remark" type="textarea"/>
+          <Input type="textarea" v-model="formData.remark"/>
         </FormItem>
       </Form>
       <div slot="footer">
@@ -153,14 +153,15 @@ export default {
       this.formData.roleName = role.roleName
       this.formData.remark = role.remark
     },
-    del (row) {
+    del (role) {
       this.$Modal.confirm({
         title: '系统提示',
-        content: '确定要删除【' + row.roleName + '】？',
+        content: '确定要删除【' + role.roleName + '】？',
         onOk: () => { }
       })
     },
     reset () {
+      this.$refs['roleForm'].resetFields()
       this.formData.roleId = 0
       this.formData.roleName = ''
       this.formData.remark = ''
