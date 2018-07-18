@@ -4,12 +4,13 @@
 
 <script>
 import echarts from 'echarts'
+import 'echarts/theme/shine.js'
 export default {
   name: 'PieChart',
   props: {
     value: Array,
     text: String,
-    subtext: String
+    name: String
   },
   mounted () {
     this.$nextTick(() => {
@@ -17,12 +18,11 @@ export default {
       let option = {
         title: {
           text: this.text,
-          subtext: this.subtext,
           x: 'center'
         },
-        tooltip: {
+        tooltip : {
           trigger: 'item',
-          formatter: '{a} <br/>{b} : {c} ({d}%)'
+          formatter: "{a} <br/>{b} : {c} ({d}%)"
         },
         legend: {
           orient: 'vertical',
@@ -31,21 +31,15 @@ export default {
         },
         series: [
           {
-            type: 'pie',
-            radius: '55%',
+            radius : '70%',
             center: ['50%', '60%'],
-            data: this.value,
-            itemStyle: {
-              emphasis: {
-                shadowBlur: 10,
-                shadowOffsetX: 0,
-                shadowColor: 'rgba(0, 0, 0, 0.5)'
-              }
-            }
+            name: this.name,
+            type: 'pie',
+            data: this.value
           }
         ]
       }
-      let dom = echarts.init(this.$refs.dom, 'tdTheme')
+      let dom = echarts.init(this.$refs.dom, 'shine')
       dom.setOption(option)
     })
   }

@@ -8,7 +8,7 @@
     <Row :gutter="20" style="padding:15px">
       <i-col span="8">
         <Card shadow>
-          <PieChart style="height: 300px;" :value="pieData" text="用户访问来源" />
+          <PieChart style="height: 300px;" :value="pieData" text="会员等级" name="会员等级" />
         </Card>
       </i-col>
       <i-col span="16">
@@ -41,11 +41,10 @@ export default {
         { title: '新增页面', icon: 'paper-airplane', count: 14, bgColor: '#9A66E4', countColor: '#2d8cf0' }
       ],
       pieData: [
-        {value: 335, name: '直接访问'},
-        {value: 310, name: '邮件营销'},
-        {value: 234, name: '联盟广告'},
-        {value: 135, name: '视频广告'},
-        {value: 1548, name: '搜索引擎'}
+        {value: 9526, name: '普卡'},
+        {value: 3689, name: '银卡'},
+        {value: 1025, name: '金卡'},
+        {value: 231, name: '白金卡'}
       ],
       barData: {
         Mon: 13253,

@@ -1,24 +1,30 @@
 <template>
   <Card>
     <div class="search-bar">
-      <Input clearable placeholder="输入关键字搜索" class="search-input" v-model="searchKey" />
-      <Button class="search-btn" type="primary" @click="search"><Icon type="search" />&nbsp;&nbsp;搜索</Button>
+      <div class="left"></div>
+      <div class="right">
+        <ButtonGroup class="mr5">
+          <Button type="primary"><Icon type="plus"/>新增</Button>
+          <Button type="error"><Icon type="close"/>删除</Button>
+        </ButtonGroup>
+        <Button><Icon type="ios-reload"/>刷新</Button>
+      </div>
     </div>
-    <Layout>
-      <Sider hide-trigger :style="{background: '#fff'}">
-          <Tree class="tree" :data="treeData" :render="treeRender"/>
-      </Sider>
-      <Content :style="{padding: '5px'}">
+    <div style="display:flex;flex:auto;">
+      <div style="width:230px;max-width:230px;min-width:230px;flex:0 0 230px;padding:0 5px;">
+        <Tree class="tree" :data="treeData" :render="treeRender"/>
+      </div>
+      <div style="flex:auto;overflow-x: hidden">
         <Table border :columns="columns" :data="data" size="small"></Table>
-      </Content>
-    </Layout>
+      </div>
+    </div>
   </Card>
 </template>
 
 <script>
 import { getDepts, getDeptTree } from '@/api/dept'
 export default {
-  name: 'Role',
+  name: 'Dept',
   data () {
     return {
       treeData: [],
@@ -28,7 +34,35 @@ export default {
         { title: '编号', width: 70, key: 'deptId' },
         { title: '部门名称', width: 200, key: 'deptName' },
         { title: '部门Code', width: 100, key: 'deptCode' },
-        { title: '备注', key: 'remark' }
+        { title: '备注', key: 'remark' },
+        {
+          title: '操作', key: 'action', fixed: 'right', width: 105, 
+          render: (h, params) => { 
+            return h('div', [
+              h('Button', {
+                props: {
+                  type: 'primary',
+                  icon: 'edit',
+                  size: 'small'
+                },
+                style: {
+                  fontSize: '14px',
+                  marginRight: '5px'
+                }
+              }, ''),
+              h('Button', {
+                props: {
+                  type: 'error',
+                  icon: 'trash-a',
+                  size: 'small'
+                },
+                style: {
+                  fontSize: '14px'
+                }
+              }, '')
+            ]);
+          }
+        }
       ],
       data: []
     }

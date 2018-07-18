@@ -4,12 +4,13 @@
 
 <script>
 import echarts from 'echarts'
+import 'echarts/theme/shine.js'
 export default {
   name: 'BarChart',
   props: {
     value: Object,
     text: String,
-    subtext: String
+    name: String
   },
   mounted () {
     this.$nextTick(() => {
@@ -18,8 +19,13 @@ export default {
       let option = {
         title: {
           text: this.text,
-          subtext: this.subtext,
           x: 'center'
+        },
+        tooltip : {
+          trigger: 'axis',
+          axisPointer : {
+            type : 'shadow'
+          }
         },
         xAxis: {
           type: 'category',
@@ -30,10 +36,11 @@ export default {
         },
         series: [{
           data: seriesData,
+          name: this.name,
           type: 'bar'
         }]
       }
-      let dom = echarts.init(this.$refs.dom, 'tdTheme')
+      let dom = echarts.init(this.$refs.dom, 'shine')
       dom.setOption(option)
     })
   }

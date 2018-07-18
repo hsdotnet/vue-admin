@@ -1,8 +1,21 @@
 <template>
   <Card>
     <div class="search-bar">
-      <Input clearable placeholder="输入关键字搜索" class="search-input" v-model="searchKey" />
-      <Button class="search-btn" type="primary" @click="search"><Icon type="search" />&nbsp;&nbsp;搜索</Button>
+      <div class="left">
+        <Input clearable placeholder="用户名" class="search-input" v-model="usreName" />
+        <Input clearable placeholder="邮箱" class="search-input" v-model="email" />
+        <ButtonGroup class="ml5">
+          <Button type="primary"><Icon type="search" />查询</Button>
+          <Button><Icon type="close" />清空</Button>
+        </ButtonGroup>
+      </div>
+      <div class="right">
+        <ButtonGroup class="mr5">
+          <Button type="primary"><Icon type="plus"/>新增</Button>
+          <Button type="error"><Icon type="close"/>删除</Button>
+        </ButtonGroup>
+        <Button><Icon type="ios-reload"/>刷新</Button>
+      </div>
     </div>
     <Table border :columns="columns" :data="data" size="small"></Table>
   </Card>
@@ -30,16 +43,45 @@ export default {
             }, text)
           }
         },
-        { title: '出生日期', width: 100, key: 'birthday', align: 'center', 
+        { title: '出生日期', width: 100, key: 'birthday', align: 'center',  
           render: (h, params) => {
             return h('div', moment().format('YYYY-MM-DD'))
           }
         },
         { title: '邮箱', width: 200, key: 'email' },
-        { title: '备注', key: 'remark' }
+        { title: '备注', key: 'remark' },
+        {
+          title: '操作', key: 'action', fixed: 'right', width: 105, 
+          render: (h, params) => { 
+            return h('div', [
+              h('Button', {
+                props: {
+                  type: 'primary',
+                  icon: 'edit',
+                  size: 'small'
+                },
+                style: {
+                  fontSize: '14px',
+                  marginRight: '5px'
+                }
+              }, ''),
+              h('Button', {
+                props: {
+                  type: 'error',
+                  icon: 'trash-a',
+                  size: 'small'
+                },
+                style: {
+                  fontSize: '14px'
+                }
+              }, '')
+            ]);
+          }
+        }
       ],
       data: [],
-      searchKey: ''
+      usreName: '',
+      email: ''
     }
   },
   methods: {
@@ -50,6 +92,11 @@ export default {
       })
     },
     search () {
+      this.getTableData()
+    },
+    clear () {
+      this.usreName = ''
+      this.email = ''
       this.getTableData()
     }
   },
