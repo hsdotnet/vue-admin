@@ -33,10 +33,18 @@ const users = [
 export const login = req => {
   req = JSON.parse(req.body)
   let user = users.filter(item => item.userName === req.userName)
-  return {
-    code: 0,
-    data: user[0].userName,
-    msg: ''
+  if (user.length === 0) {
+    return {
+      code: -1,
+      data: null,
+      msg: '用户名或者密码错误'
+    }
+  } else {
+    return {
+      code: 0,
+      data: user[0].userName,
+      msg: ''
+    }
   }
 }
 
