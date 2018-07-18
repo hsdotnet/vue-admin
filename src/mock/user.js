@@ -1,37 +1,51 @@
 import { getParams } from '@/libs/util'
-const USER_MAP = {
-  admin: {
+const users = [
+  {
+    userId: 1,
     userName: 'admin',
-    userId: '1',
-    access: ['admin'],
-    token: 'admin',
-    avator: 'https://avatars0.githubusercontent.com/u/20942571?s=460&v=4',
+    realName: '管理员',
+    sex: 1,
+    age: 12,
+    birthday: '2018-07-16T02:12:47.211+0000',
+    deptId: 1,
+    email: '524857526@qq.com',
+    address: '上海市普陀区',
+    remark: '无',
+    avator: 'http://adminlte.la998.com/dist/img/user2-160x160.jpg',
     isTab: true
   },
-  test: {
+  {
+    userId: 2,
     userName: 'test',
-    userId: '2',
-    access: ['test', 'admin'],
-    token: 'test',
-    avator: 'https://file.iviewui.com/dist/a0e88e83800f138b94d2414621bd9704.png',
+    realName: '管理员',
+    sex: 1,
+    age: 23,
+    birthday: '2018-07-16T02:12:47.211+0000',
+    deptId: 1,
+    email: '8387451112@qq.com',
+    address: '上海市静安区',
+    remark: '无',
+    avator: 'http://adminlte.la998.com/dist/img/user2-160x160.jpg',
     isTab: false
   }
-}
+]
 
 export const login = req => {
   req = JSON.parse(req.body)
+  let user = users.filter(item => item.userName === req.userName)
   return {
     code: 0,
-    data: {token: USER_MAP[req.userName].token},
+    data: user[0].userName,
     msg: ''
   }
 }
 
 export const getUserInfo = req => {
   const params = getParams(req.url)
+  let user = users.filter(item => item.userName === params.userName)
   return {
     code: 0,
-    data: USER_MAP[params.token],
+    data: user[0],
     msg: ''
   }
 }
@@ -40,6 +54,14 @@ export const logout = req => {
   return {
     code: 0,
     data: null,
+    msg: ''
+  }
+}
+
+export const getUsers = req => {
+  return {
+    code: 0,
+    data: users,
     msg: ''
   }
 }

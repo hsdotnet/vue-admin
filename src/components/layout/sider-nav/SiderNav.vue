@@ -5,7 +5,7 @@
         <div class="sider-user-box">
           <Avatar :src="userAvator" />
           <div class="info">
-            <p>Welcome，Admin</p>
+            <p>Welcome，{{userName}}</p>
             <a href="javascript:void(0);"><IconFont type="QQ" /> Online</a>
           </div>
         </div>
@@ -93,6 +93,9 @@ export default {
   computed: {
     userAvator () {
       return this.$store.state.user.avatorImgPath
+    },
+    userName () {
+      return this.$store.state.user.userName
     }
   },
   watch: {

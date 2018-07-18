@@ -5,7 +5,7 @@
         <a @click="handleNavToggle" type="text" :class="['icon sider-nav-toggle', collapsed ? 'collapsed' : '']"><IconFont type="outdent" /></a>
       </li>
       <li>
-        <router-link class="logo" to="/">Admin</router-link>
+        <router-link class="logo" to="/">Vue Admin</router-link>
       </li>
     </ul>
     <ul class="header-right">
@@ -22,7 +22,7 @@
         <a type="text" class="user">
           <Dropdown @on-click="handleClick">
             <Avatar :src="userAvator" class="user-dropdown-avator"/>
-            <span class="user-text">Admin</span>
+            <span class="user-text">{{userName}}</span>
             <DropdownMenu slot="list">
               <DropdownItem name="profile"><IconFont type="user"/> 个人中心</DropdownItem>
               <DropdownItem name="password"><IconFont type="key"/> 修改密码</DropdownItem>
@@ -84,6 +84,9 @@ export default {
   computed: {
     userAvator () {
       return this.$store.state.user.avatorImgPath
+    },
+    userName () {
+      return this.$store.state.user.userName
     }
   }
 }
