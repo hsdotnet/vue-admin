@@ -32,21 +32,22 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   li{
-    width: 80px; 
-    height: 50px; 
+    width: 80px;
+    height: 50px;
     margin: 5px 8px;
     background: #eee;
-    position: relative; 
+    position: relative;
     opacity: 0.5;
     cursor: pointer;
     .theme-header{
-      position: relative;height: 10px;
+      position: relative;
+      height: 10px;
     }
     .theme-sider{
       position: absolute;
-      left: 0; 
+      left: 0;
       top: 10px;
-      width: 20px; 
+      width: 20px;
       height: 40px;
     }
   }

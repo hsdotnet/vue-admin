@@ -1,13 +1,11 @@
 <template>
-  <div class="info-card">
-    <div class="left-area" :style="{background: bgColor}">
-      <Icon class="icon" :type="icon" :size="iconSize" color="#fff"/>
+  <div class="info-card" :style="{background: bgColor}">
+    <div class="left-area">
+      <IconFont class="icon" :type="icon"/>
     </div>
     <div class="right-area">
-      <div class="right-area-warpper">
-        <div class="count" :style="{color: countColor}">{{ count }}</div>
-        <p>{{ title }}</p>
-      </div>
+      <div class="count">{{ count }}</div>
+      <div class="desc">{{ title }}</div>
     </div>
   </div>
 </template>
@@ -24,21 +22,9 @@ export default {
       type: String,
       default: '#2d8cf0'
     },
-    countColor: {
-      type: String,
-      default: '#2d8cf0'
-    },
     icon: {
       type: String,
       default: ''
-    },
-    iconSize: {
-      type: Number,
-      default: 20
-    },
-    shadow: {
-      type: Boolean,
-      default: false
     },
     count: {
       type: Number,
@@ -53,41 +39,34 @@ export default {
 </script>
 
 <style lang="less">
-.common{
-  position: absolute;
-  top: 0px;
-  height: 100%;
-  display: table;
-  text-align: center;
-}
 .info-card{
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  height: 100px;
+  display: flex;
+  justify-content: space-between;
   overflow: hidden;
-  position: relative;
+  border-radius: 3px;
+  padding: 10px;
+  cursor: pointer;
   .left-area{
-    .common;
-    width: 36%;
-    left: 0;
     .icon{
-      display: table-cell;
-      vertical-align: middle;
+      opacity: 0.1;
+      font-size: 100px;
+      line-height: 100px;
+      color: #fff;
     }
   }
   .right-area{
-    .common;
-    width: 64%;
-    font-size: 14px;
-    color: #999;
-    right: 0;
-    .right-area-warpper{
-      display: table-cell;
-      vertical-align: middle;
-      .count{
-        font-size: 40px;
-      }
+    text-align: right;
+    .count{
+      padding-top: 20px;
+      font-size: 34px;
+      line-height: 36px;
+      font-weight: 300;
+      color: #fff;
+    }
+    .desc{
+      color: #fff;
+      font-size: 16px;
+      font-weight: 300;
     }
   }
 }

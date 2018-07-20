@@ -1,9 +1,9 @@
 <template>
   <div>
-    <Row :gutter="20" style="padding:15px">
-      <i-col span="4" v-for="(info, i) in infoCardData" :key="`infor-${i}`">
+    <Row :gutter="16">
+      <Col span="6" v-for="(info, i) in infoCardData" :key="`infor-${i}`">
         <InfoCard :bgColor="info.bgColor" :countColor="info.countColor" :icon="info.icon" :count="info.count" :title="info.title" :icon-size="36" />
-      </i-col>
+      </Col>
     </Row>
     <Row :gutter="20" style="padding:15px">
       <i-col span="8">
@@ -33,12 +33,10 @@ export default {
   data () {
     return {
       infoCardData: [
-        { title: '新增用户', icon: 'android-person-add', count: 803, bgColor: '#2d8cf0', countColor: '#f00' },
-        { title: '累计点击', icon: 'pinpoint', count: 250, bgColor: '#19be6b', countColor: '#00a65a' },
-        { title: '新增问答', icon: 'help-circled', count: 142, bgColor: '#ff9900', countColor: '#ed3f14' },
-        { title: '分享统计', icon: 'android-share-alt', count: 657, bgColor: '#ed3f14', countColor: '#ff9900' },
-        { title: '新增活动', icon: 'social-twitch', count: 12, bgColor: '#E46CBB', countColor: '#9A66E4' },
-        { title: '新增页面', icon: 'paper-airplane', count: 14, bgColor: '#9A66E4', countColor: '#2d8cf0' }
+        { title: '新反馈', icon: 'message', count: 803, bgColor: '#2d8cf0' },
+        { title: '用户量', icon: 'barchart', count: 250, bgColor: '#19be6b' },
+        { title: '订单量', icon: 'shopping', count: 142, bgColor: '#32c5d2' },
+        { title: '分享统计', icon: 'barchart', count: 657, bgColor: '#8e44ad' }
       ],
       pieData: [
         {value: 9526, name: '普卡'},
