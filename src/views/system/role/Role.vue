@@ -4,14 +4,14 @@
       <div class="left">
         <Input clearable placeholder="角色名称" class="search-input" v-model="roleName" />
         <ButtonGroup class="ml5">
-          <Button type="primary" @click="search"><Icon type="search" />查询</Button>
-          <Button @click="clear"><Icon type="close" />清空</Button>
+          <Button type="primary" icon="md-search" @click="search">查询</Button>
+          <Button icon="md-close" @click="clear">清空</Button>
         </ButtonGroup>
       </div>
       <div class="right">
         <ButtonGroup class="mr5">
-          <Button type="primary" @click="add"><Icon type="plus"/>新增</Button>
-          <Button type="error" @click="batchDel"><Icon type="close"/>删除</Button>
+          <Button type="primary" icon="md-add" @click="add">新增</Button>
+          <Button type="error" icon="md-close" @click="batchDel">删除</Button>
         </ButtonGroup>
       </div>
     </div>
@@ -56,14 +56,14 @@ export default {
           title: '操作',
           key: 'action',
           fixed: 'right',
-          width: 105,
+          width: 110,
           render: (h, params) => {
             var that = this
             return h('div', [
               h('Button', {
                 props: {
                   type: 'primary',
-                  icon: 'edit',
+                  icon: 'md-checkbox-outline',
                   size: 'small'
                 },
                 style: {
@@ -79,7 +79,7 @@ export default {
               h('Button', {
                 props: {
                   type: 'error',
-                  icon: 'trash-a',
+                  icon: 'md-trash',
                   size: 'small'
                 },
                 style: {

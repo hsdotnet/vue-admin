@@ -4,10 +4,10 @@
       <div class="left"></div>
       <div class="right">
         <ButtonGroup class="mr5">
-          <Button type="primary"><Icon type="plus"/>新增</Button>
-          <Button type="error"><Icon type="close"/>删除</Button>
+          <Button type="primary" icon="md-add">新增</Button>
+          <Button type="error" icon="md-close">删除</Button>
         </ButtonGroup>
-        <Button><Icon type="ios-reload"/>刷新</Button>
+        <Button icon="md-refresh">刷新</Button>
       </div>
     </div>
     <div style="display:flex;flex:auto;">
@@ -39,13 +39,13 @@ export default {
           title: '操作',
           key: 'action',
           fixed: 'right',
-          width: 105,
+          width: 110,
           render: (h, params) => {
             return h('div', [
               h('Button', {
                 props: {
                   type: 'primary',
-                  icon: 'edit',
+                  icon: 'md-checkbox-outline',
                   size: 'small'
                 },
                 style: {
@@ -56,7 +56,7 @@ export default {
               h('Button', {
                 props: {
                   type: 'error',
-                  icon: 'trash-a',
+                  icon: 'md-trash',
                   size: 'small'
                 },
                 style: {
