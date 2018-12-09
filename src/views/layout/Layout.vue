@@ -72,6 +72,7 @@ export default {
       return this.$store.state.user.avatorImgPath
     },
     isTab () {
+      console.log(this.$store.state.user.isTab)
       return this.$store.state.user.isTab
     },
     theme () {
